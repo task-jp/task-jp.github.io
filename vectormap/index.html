@@ -1,3 +1,74 @@
+<!DOCTYPE html>
 <html>
-<body>Vector</body>
+<head>
+    <meta charset='utf-8' />
+    <title>Maps.Rest Vector map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: './style.json',
+    center: [141.34559, 43.08037], // starting position
+    zoom: 15 // starting zoom
+});
+map.addControl(new mapboxgl.NavigationControl());
+
+function restore() {
+    var lat = 43.08037;
+    var lng = 141.34559;
+    var zoom = 20;
+
+    var match = location.hash.match(/^#([0-9\.]+),([0-9\.]+),([0-9\.]+)$/)
+    if (match) {
+        lat = parseFloat(match[1]);
+        lng = parseFloat(match[2]);
+        zoom = parseFloat(match[3]);
+    } else if (localStorage && localStorage['lat'] && localStorage['lng'] && localStorage['zoom']) {
+        lat = parseFloat(localStorage['lat']);
+        lng = parseFloat(localStorage['lng']);
+        zoom = parseFloat(localStorage['zoom']);
+    }
+    location.hash = lat.toFixed(6) + ',' + lng.toFixed(6) + ',' + zoom.toFixed(6);
+    map.jumpTo({"center": [lng, lat], "zoom": zoom});
+}
+
+function save() {
+    var c = map.getCenter();
+    var z = map.getZoom();
+    if (localStorage) {
+        localStorage['lat'] = c.lat;
+        localStorage['lng'] = c.lng;
+        localStorage['zoom'] = z;
+    }
+    location.hash = c.lat.toFixed(6) + ',' + c.lng.toFixed(6) + ',' + z.toFixed(6);
+}
+
+window.onhashchange = function () {
+    var match = location.hash.match(/^#([0-9\.]+),([0-9\.]+),([0-9]+)$/)
+    if (match) {
+        var lat = parseFloat(match[1]);
+        var lng = parseFloat(match[2]);
+        var zoom = parseFloat(match[3]);
+        map.jumpTo({"center": [lng, lat], "zoom": zoom});
+    }
+}
+
+map.on('zoomend', save);
+map.on('moveend', save);
+map.on('contextmenu', function (e) { window.open('https://www.openstreetmap.org/edit#map=17/' + e.latlng.lat.toFixed(6) + '/' + e.latlng.lng.toFixed(6)); });
+restore();
+
+</script>
+
+</body>
 </html>

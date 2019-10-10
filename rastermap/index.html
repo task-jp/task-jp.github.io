@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Maps.Rest demo</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" crossorigin="">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://flaviocarmo.github.io/Leaflet.zoominfo/src/L.Control.Zoominfo.css" />
+<script src="https://flaviocarmo.github.io/Leaflet.zoominfo/src/L.Control.Zoominfo.js" ></script>
+<style>
+html,body,div#map { height: 100%; margin: 0; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+var map = L.map('map', {
+    zoominfoControl: true,
+    zoomControl: true
+});
+
+var baseMaps = {}
+baseMaps["OSM Style"] = L.tileLayer(location.protocol + '//' + location.hostname + ':' + location.port + '/osm/{z}/{x}/{y}{r}.png', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, powered by <a href="https://cloud.sakura.ad.jp/">さくらのクラウド</a>',
+    minZoom: 1,
+    maxZoom: 21
+})
+baseMaps["Island"] = L.tileLayer(location.protocol + '//' + location.hostname + ':' + location.port + '/island/{z}/{x}/{y}{r}.png', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, powered by <a href="https://cloud.sakura.ad.jp/">さくらのクラウド</a>',
+    minZoom: 1,
+    maxZoom: 21
+})
+
+baseMaps["OSM Style"].addTo(map)
+L.control.layers(baseMaps, {}).addTo(map);
+
+function restore() {
+    var lat = 43.08037;
+    var lng = 141.34559;
+    var zoom = 20;
+
+    var match = location.hash.match(/^#([0-9\.]+),([0-9\.]+),([0-9]+)$/)
+    if (match) {
+        lat = parseFloat(match[1]);
+        lng = parseFloat(match[2]);
+        zoom = parseInt(match[3]);
+    } else if (localStorage && localStorage['lat'] && localStorage['lng'] && localStorage['zoom']) {
+        lat = parseFloat(localStorage['lat']);
+        lng = parseFloat(localStorage['lng']);
+        zoom = parseInt(localStorage['zoom']);
+    }
+    location.hash = lat.toFixed(6) + ',' + lng.toFixed(6) + ',' + zoom;
+    map.setView([lat, lng], zoom);
+}
+
+function save() {
+    var c = map.getCenter();
+    var z = map.getZoom();
+    if (localStorage) {
+        localStorage['lat'] = c.lat;
+        localStorage['lng'] = c.lng;
+        localStorage['zoom'] = z;
+    }
+    location.hash = c.lat.toFixed(6) + ',' + c.lng.toFixed(6) + ',' + z;
+}
+
+window.onhashchange = function () {
+    var match = location.hash.match(/^#([0-9\.]+),([0-9\.]+),([0-9]+)$/)
+    if (match) {
+        var lat = parseFloat(match[1]);
+        var lng = parseFloat(match[2]);
+        var zoom = parseInt(match[3]);
+        map.setView([lat, lng], zoom);
+    }
+}
+
+map.on('zoomend', save);
+map.on('moveend', save);
+map.on('contextmenu', function (e) { window.open('https://www.openstreetmap.org/edit#map=17/' + e.latlng.lat.toFixed(6) + '/' + e.latlng.lng.toFixed(6)); });
+restore();
+
+</script>
+</body>
+</html>
