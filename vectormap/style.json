@@ -3196,7 +3196,10 @@
       "source-layer": "building",
       "minzoom": 14,
       "paint": {
-        "fill-extrusion-color": "hsl(35, 8%, 85%)",
+        "fill-extrusion-color": {
+            "property": "render_color",
+            "type": "identity"
+        },
         "fill-extrusion-height": {
           "property": "render_height",
           "type": "identity"
