@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GeoJSON to static map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  </head>
+  <body>
+  <section class="section">
+    <div id="container">
+      <h1 class="title">
+        GeoJSON to static map
+      </h1>
+      <h2>Paste your GeoJSON</h2>
+      <textarea id="geojson" class="textarea" placeholder="{ &quot;type&quot;: &quot;Point&quot;,
+    &quot;crs&quot;: { &quot;type&quot;: &quot;name&quot;,
+        &quot;properties&quot;: {
+            &quot;name&quot;: &quot;urn:ogc:def:crs:OGC:1.3:CRS84&quot;
+        }
+    },
+    &quot;coordinates&quot;: [138.7309, 35.3628]
+}" rows="15"></textarea>
+      <h2>Map URL</h2>
+      <input id="url" type="text" class="input" readonly="readonly" />
+      <img id="map" width="512" height="512" style="border: 2px #ff0000 solid;" />
+    </div>
+    <script>
+        var textarea = document.getElementById("geojson");
+        textarea.addEventListener('input', function () {
+        document.getElementById("url").value = '';
+            document.getElementById("map").src = '';
+            try {
+                var geojson = JSON.parse(textarea.value);
+            } catch (e) {
+                return;
+            }
+
+            var url = 'https://static.maps.rest/osm?size=512x512&zoom=10'
+            switch (geojson.type) {
+            case 'Point':
+                url += '&center=' + geojson.coordinates[1].toFixed(6) + ',' + geojson.coordinates[0].toFixed(6)
+                url += '&markers=' + geojson.coordinates[1].toFixed(6) + ',' + geojson.coordinates[0].toFixed(6)
+                break;
+            case 'MultiPoint':
+                url += '&markers=';
+                for (var i = 0; i < geojson.coordinates.length; i++) {
+                    if (i > 0)
+                        url += '|';
+                    url += geojson.coordinates[i][1].toFixed(6) + ',' + geojson.coordinates[i][0].toFixed(6)
+                }
+                break;
+            case 'LineString':
+                url += '&path=';
+                for (var i = 0; i < geojson.coordinates.length; i++) {
+                    if (i > 0)
+                        url += '|';
+                    url += geojson.coordinates[i][1].toFixed(6) + ',' + geojson.coordinates[i][0].toFixed(6)
+                }
+                break;
+            case 'Polygon':
+                url += '&path=';
+                for (var i = 0; i < geojson.coordinates[0].length; i++) {
+                    if (i > 0)
+                        url += '|';
+                    url += geojson.coordinates[0][i][1].toFixed(6) + ',' + geojson.coordinates[0][i][0].toFixed(6)
+                }
+                break;
+            case 'FeatureCollection':
+                for (var i = 0; i < geojson.features.length; i++) {
+                    var feature = geojson.features[geojson.features.length - i - 1];
+                    var geometry = feature.geometry;
+                    switch (geometry.type) {
+                    case 'Point':
+                        url += '&markers=' + geometry.coordinates[1].toFixed(6) + ',' + geometry.coordinates[0].toFixed(6)
+                        break;
+                    case 'MultiPoint':
+                        url += '&markers=';
+                        for (var j = 0; j < geometry.coordinates.length; j++) {
+                            if (j > 0)
+                                url += '|';
+                            url += geometry.coordinates[j][1].toFixed(6) + ',' + geometry.coordinates[j][0].toFixed(6)
+                        }
+                        break;
+                    case 'LineString':
+                        url += '&path=';
+                        for (var j = 0; j < geometry.coordinates.length; j++) {
+                            if (j > 0)
+                                url += '|';
+                            url += geometry.coordinates[j][1].toFixed(6) + ',' + geometry.coordinates[j][0].toFixed(6)
+                        }
+                        break;
+                    case 'Polygon':
+                        url += '&path=';
+                        for (var j = 0; j < geometry.coordinates[0].length; j++) {
+                            if (j > 0)
+                                url += '|';
+                            url += geometry.coordinates[0][j][1].toFixed(6) + ',' + geometry.coordinates[0][j][0].toFixed(6)
+                        }
+                        break;
+                    }
+                }
+                break;
+            default:
+                return;
+            }
+            document.getElementById("url").value = url;
+            document.getElementById("map").src = url;
+        });
+    </script>
+  </section>
+  </body>
+</html>
