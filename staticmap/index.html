@@ -1,0 +1,445 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Static Map - Maps.Rest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  </head>
+  <body>
+  <section class="section">
+    <div id="container">
+      <h1 class="title is-1">Static Map</h1>
+      <h2 class="title is-2">Styles (osm, island)</h2>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=12&amp;center=43.063678,141.342663" alt="Open Street Map style">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Open Street Map style</strong> <small><code>osm</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=12&amp;center=43.063678,141.342663" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/island?size=256x256&amp;zoom=5&amp;center=43.063678,141.342663" alt="Simple Island style">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Simple Island style</strong> <small><code>island</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/island?size=256x256&amp;zoom=5&amp;center=43.063678,141.342663" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <h2 class="title is-2">Size (1x1 ~ 640x640)</h2>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 128px; height: 128px">
+              <img src="https://static.maps.rest/osm?size=128x128&amp;zoom=15&amp;center=43.063678,141.342663" alt="128x128">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>128x128</strong> <small><code>size=128x128</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=128x128&amp;zoom=15&amp;center=43.063678,141.342663" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;center=43.063678,141.342663" alt="256x256">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>256x256</strong> <small><code>size=256x256</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;center=43.063678,141.342663" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 512px; height: 512px">
+              <img src="https://static.maps.rest/osm?size=512x512&amp;zoom=15&amp;center=43.063678,141.342663" alt="512x512">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>512x512</strong> <small><code>size=512x512&amp;z=15</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=512x512&amp;zoom=15&amp;center=43.063678,141.342663" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <h2 class="title is-2">Zoom (1 ~ 22)</h2>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=20&amp;center=43.063678,141.342663" alt="20">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>20</strong> <small><code>zoom=20</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=20&amp;center=43.063678,141.342663" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;center=43.063678,141.342663" alt="15">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>15</strong> <small><code>zoom=15</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;center=43.063678,141.342663" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=10&amp;center=43.063678,141.342663" alt="10">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>10</strong> <small><code>zoom=10</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=10&amp;center=43.063678,141.342663" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=5&amp;center=43.063678,141.342663" alt="5">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>5</strong> <small><code>zoom=5</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=5&amp;center=43.063678,141.342663" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <h2 class="title is-2">Scale (1, 2, 4)</h2>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663" alt="Normal">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Normal</strong> <small><code>scale=1</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=2&amp;center=43.063678,141.342663" alt="High DPI @2x">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>High DPI @2x</strong> <small><code>scale=2</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=2&amp;center=43.063678,141.342663" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=4&amp;center=43.063678,141.342663" alt="High DPI @4x">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>High DPI @4x</strong> <small><code>scale=4</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=4&amp;center=43.063678,141.342663" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <h2 class="title is-2">Markers</h2>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=43.064108,141.340492" alt="Coordinate">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Coordinate</strong> <small><code>markers=lat,lng</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=43.064108,141.340492" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=43.064108,141.340492|43.064305,141.341872" alt="Coordinates">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Coordinates</strong> <small><code>markers=lat,lng|lat,lng</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=43.064108,141.340492|43.064305,141.341872" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=color:red|43.064108,141.340492|43.064305,141.341872" alt="Color by name">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Color by name</strong> <small><code>markers=color:red</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=color:red|43.064108,141.340492|43.064305,141.341872" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=color:0xDCBE74FF|43.064108,141.340492|43.064305,141.341872" alt="Color by rgba">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Color by rgba</strong> <small><code>markers=color:0xDCBE74FF</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=color:0xDCBE74FF|43.064108,141.340492|43.064305,141.341872" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=label:1|43.064108,141.340492|label:2|43.064305,141.341872" alt="Label">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Label</strong> <small><code>markers=label:1</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=label:1|43.064108,141.340492|label:2|43.064305,141.341872" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=icon:https://goo.gl/1oTJ9Y|43.064108,141.340492|43.064305,141.341872" alt="Icon">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Icon</strong> <small><code>markers=icon:http://...</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=icon:https://goo.gl/1oTJ9Y|43.064108,141.340492|43.064305,141.341872" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=icon:https://goo.gl/1oTJ9Y|anchor:center|43.064108,141.340492|43.064305,141.341872" alt="Anchors">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Anchors</strong> <small><code>markers=anchors:center</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=15&amp;scale=1&amp;center=43.063678,141.342663&amp;markers=icon:https://goo.gl/1oTJ9Y|anchor:center|43.064108,141.340492|43.064305,141.341872" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <h2 class="title is-2">Paths</h2>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=14&amp;scale=1&amp;center=43.063678,141.342663&amp;path=43.062211,141.345109|43.061300,141.337416" alt="Line">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Line</strong> <small><code>path=lat,lng|lat,lng</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=14&amp;scale=1&amp;center=43.063678,141.342663&amp;path=43.062211,141.345109|43.061300,141.337416" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=14&amp;scale=1&amp;center=43.063678,141.342663&amp;path=color:blue|43.062211,141.345109|43.061300,141.337416" alt="Color">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Color</strong> <small><code>path=color:red</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=14&amp;scale=1&amp;center=43.063678,141.342663&amp;path=color:blue|43.062211,141.345109|43.061300,141.337416" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image" style="width: 256px; height: 256px">
+              <img src="https://static.maps.rest/osm?size=256x256&amp;zoom=14&amp;scale=1&amp;center=43.063678,141.342663&amp;path=43.066489,141.336021|43.067210,141.340441|43.066959,141.344175|43.062211,141.345109|43.061300,141.337416|43.066489,141.336021" alt="Polygon">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Polygon</strong> <small><code>path=a,b|....|a,b</code></small>
+                <br>
+                <input class="input" type="text" readonly="readonly" value="https://static.maps.rest/osm?size=256x256&amp;zoom=14&amp;scale=1&amp;center=43.063678,141.342663&amp;path=43.066489,141.336021|43.067210,141.340441|43.066959,141.344175|43.062211,141.345109|43.061300,141.337416|43.066489,141.336021" />
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    <script>
+        var red = 'circle://0xCB7882FF:32'
+        var green = 'circle://0x5AB38BFF:32'
+        var blue = 'circle://0x62A3C4FF:32'
+        var yellow = 'circle://0xDCBE74FF:32'
+        var size = '300x300'
+        var center = '43.063678,141.342663'
+        var path = 'color:0xC0D860FF|weight:5|fillcolor:0xC0D86066|43.066489,141.336021|43.067210,141.340441|43.066959,141.344175|43.062211,141.345109|43.061300,141.337416|43.066489,141.336021'
+        var url = '/osm?size=' + size + '&center=' + center + '&path=' + path + '&images=icon:' + red + '|43.063678,141.342663&labels=text:12|43.063678,141.342663&images=icon:' + blue + '|43.064108,141.340492|43.064305,141.341872&labels=text:11|43.064108,141.340492&labels=text:10|43.064305,141.341872&images=icon:' + green + '|43.064908,141.339451&images=icon:' + yellow + '|43.065691,141.341945&labels=text:9|43.064908,141.339451|text:8|43.065691,141.341948'
+        var places = {
+            "z=13": url + '&zoom=13',
+            "z=14": url + '&zoom=14',
+            "z=15": url + '&zoom=15',
+            "z=16": url + '&zoom=16',
+        }
+        Object.keys({}).forEach(function(key) {
+            var img = document.createElement('img');
+            img.src = this[key]
+            img.srcset = this[key] + ' 1x, ' +
+            this[key] + '&scale=2 2x, ' +
+            this[key] + '&scale=4 4x '
+            img.width = 300
+            img.height = 300
+            img.alt = key
+            document.getElementById('container').appendChild(img);
+        }, places)
+    </script>
+  </section>
+  </body>
+</html>
