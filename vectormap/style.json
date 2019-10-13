@@ -26,6 +26,24 @@
       }
     },
     {
+      "id": "sea",
+      "type": "fill",
+      "source": "maps.rest",
+      "source-layer": "sea",
+      "paint": {
+        "fill-color": "rgb(158,189,255)"
+      }
+    },
+    {
+      "id": "island",
+      "type": "fill",
+      "source": "maps.rest",
+      "source-layer": "place",
+      "paint": {
+        "fill-color": "rgb(239,239,239)"
+      }
+    },
+    {
       "id": "park",
       "type": "fill",
       "source": "maps.rest",
