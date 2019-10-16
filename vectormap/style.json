@@ -16,7 +16,8 @@
       }
   },
   "sprite": "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={key}",
+  "glyphs": "https://tile.maps.rest/fonts/{fontstack}/{range}.pbf",
+  "1glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=SymbVzXrAD6Jmqe6yBOS",
   "layers": [
     {
       "id": "background",
@@ -1274,62 +1275,6 @@
       }
     },
     {
-      "id": "road_motorway_link_casing",
-      "type": "line",
-      "metadata": {},
-      "source": "maps.rest",
-      "source-layer": "transportation",
-      "minzoom": 12,
-      "filter": [
-        "all",
-        [
-          "!in",
-          "brunnel",
-          "bridge",
-          "tunnel"
-        ],
-        [
-          "==",
-          "class",
-          "motorway"
-        ],
-        [
-          "==",
-          "ramp",
-          1
-        ]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "line-join": "round"
-      },
-      "paint": {
-        "line-color": "#e9ac77",
-        "line-opacity": 1,
-        "line-width": {
-          "base": 1.2,
-          "stops": [
-            [
-              12,
-              1
-            ],
-            [
-              13,
-              3
-            ],
-            [
-              14,
-              4
-            ],
-            [
-              20,
-              15
-            ]
-          ]
-        }
-      }
-    },
-    {
       "id": "road_service_track_casing",
       "type": "line",
       "metadata": {},
@@ -1370,66 +1315,6 @@
             [
               20,
               11
-            ]
-          ]
-        }
-      }
-    },
-    {
-      "id": "road_link_casing",
-      "type": "line",
-      "metadata": {},
-      "source": "maps.rest",
-      "source-layer": "transportation",
-      "minzoom": 13,
-      "filter": [
-        "all",
-        [
-          "!in",
-          "brunnel",
-          "bridge",
-          "tunnel"
-        ],
-        [
-          "!in",
-          "class",
-          "pedestrian",
-          "path",
-          "track",
-          "service"
-        ],
-        [
-          "==",
-          "ramp",
-          "1"
-        ]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "line-join": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#e9ac77",
-        "line-opacity": 1,
-        "line-width": {
-          "base": 1.2,
-          "stops": [
-            [
-              12,
-              1
-            ],
-            [
-              13,
-              3
-            ],
-            [
-              14,
-              4
-            ],
-            [
-              20,
-              15
             ]
           ]
         }
@@ -1501,6 +1386,122 @@
             [
               20,
               20
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "road_motorway_link_casing",
+      "type": "line",
+      "metadata": {},
+      "source": "maps.rest",
+      "source-layer": "transportation",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        [
+          "!in",
+          "brunnel",
+          "bridge",
+          "tunnel"
+        ],
+        [
+          "==",
+          "class",
+          "motorway"
+        ],
+        [
+          "==",
+          "ramp",
+          1
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#e9ac77",
+        "line-opacity": 1,
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [
+              12,
+              1
+            ],
+            [
+              13,
+              3
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              20,
+              15
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "road_link_casing",
+      "type": "line",
+      "metadata": {},
+      "source": "maps.rest",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        [
+          "!in",
+          "brunnel",
+          "bridge",
+          "tunnel"
+        ],
+        [
+          "!in",
+          "class",
+          "pedestrian",
+          "path",
+          "track",
+          "service"
+        ],
+        [
+          "==",
+          "ramp",
+          "1"
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#e9ac77",
+        "line-opacity": 1,
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [
+              12,
+              1
+            ],
+            [
+              13,
+              3
+            ],
+            [
+              14,
+              4
+            ],
+            [
+              20,
+              15
             ]
           ]
         }
@@ -3332,7 +3333,7 @@
       "type": "symbol",
       "metadata": {},
       "source": "maps.rest",
-      "source-layer": "water_name",
+      "source-layer": "waterway",
       "filter": [
         "all",
         [
@@ -3344,7 +3345,7 @@
       "layout": {
         "text-field": "{name}",
         "text-font": [
-          "Roboto Regular"
+          "JK Gothic L Light"
         ],
         "text-max-width": 5,
         "text-size": 12,
@@ -3371,7 +3372,7 @@
       "layout": {
         "text-field": "{name}",
         "text-font": [
-          "Roboto Regular"
+          "JK Gothic L Light"
         ],
         "text-max-width": 5,
         "text-size": 12
@@ -3408,7 +3409,7 @@
         "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
-          "Roboto Condensed Italic"
+          "JK Gothic L Light"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -3455,7 +3456,7 @@
         "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
-          "Roboto Condensed Italic"
+          "JK Gothic L Light"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -3502,7 +3503,7 @@
         "text-anchor": "top",
         "text-field": "{name}",
         "text-font": [
-          "Roboto Condensed Italic"
+          "JK Gothic L Light"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -3530,7 +3531,7 @@
         "text-anchor": "left",
         "text-field": "{name_en}",
         "text-font": [
-          "Roboto Condensed Italic"
+          "JK Gothic L Light"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -3563,7 +3564,7 @@
       "type": "symbol",
       "metadata": {},
       "source": "maps.rest",
-      "source-layer": "transportation_name",
+      "source-layer": "transportation",
       "filter": [
         "all"
       ],
@@ -3572,7 +3573,7 @@
         "text-anchor": "center",
         "text-field": "{name}",
         "text-font": [
-          "Roboto Regular"
+          "JK Gothic L Light"
         ],
         "text-offset": [
           0,
@@ -3632,7 +3633,7 @@
         "symbol-spacing": 500,
         "text-field": "{ref}",
         "text-font": [
-          "Roboto Regular"
+          "JK Gothic L Light"
         ],
         "text-offset": [
           0,
@@ -3665,7 +3666,7 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Roboto Condensed Italic"
+          "JK Gothic L Light"
         ],
         "text-letter-spacing": 0.1,
         "text-max-width": 9,
@@ -3707,7 +3708,7 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Roboto Regular"
+          "JK Gothic L Light"
         ],
         "text-max-width": 8,
         "text-size": {
@@ -3761,7 +3762,7 @@
         "text-anchor": "bottom",
         "text-field": "{name_en}",
         "text-font": [
-          "Roboto Regular"
+          "JK Gothic L Light"
         ],
         "text-max-width": 8,
         "text-offset": [
@@ -3820,7 +3821,7 @@
         "text-anchor": "bottom",
         "text-field": "{name_en}",
         "text-font": [
-          "Roboto Medium"
+          "JK Gothic L Light"
         ],
         "text-max-width": 8,
         "text-offset": [
@@ -3859,7 +3860,7 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Roboto Condensed Italic"
+          "JK Gothic L Light"
         ],
         "text-size": {
           "stops": [
@@ -3911,7 +3912,7 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Roboto Condensed Italic"
+          "JK Gothic L Light"
         ],
         "text-max-width": 6.25,
         "text-size": {
@@ -3957,7 +3958,7 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Roboto Condensed Italic"
+          "JK Gothic L Light"
         ],
         "text-max-width": 6.25,
         "text-size": {
@@ -4003,7 +4004,7 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Roboto Condensed Italic"
+          "JK Gothic L Light"
         ],
         "text-max-width": 6.25,
         "text-size": {
@@ -4037,7 +4038,7 @@
       "layout": {
         "text-field": "{name_en}",
         "text-font": [
-          "Roboto Condensed Italic"
+          "JK Gothic L Light"
         ],
         "text-size": 13,
         "text-transform": "uppercase",
