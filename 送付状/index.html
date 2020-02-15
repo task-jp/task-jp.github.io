@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<title>送付状</title>
+<link href="https://fonts.googleapis.com/css?family=Kosugi+Maru&amp;display=swap" rel="stylesheet">
+<style type="text/css">
+body {
+    font-family: 'Kosugi Maru', sans-serif;
+    font-size: 6mm;
+}
+hr[class="dash"] {
+    border:none;
+    border-top: dashed 1px #000000;
+    height: 1px;
+    margin-block-start: 0.25em;
+    margin-block-end: 0.25em;
+}
+
+#documentation > input[type="text"] {
+    width: 180mm;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+.sheet {
+    width: 210mm;
+    height: 296mm; /* 1mm余裕をもたせる */
+    padding: 10mm;
+}
+input[type="text"] {
+    border: 0px;
+}
+textarea {
+    border: 0px;
+}
+@media print {
+    /* この中に印刷時のみの指定を書く */
+    .sheet {
+        page-break-after: always;
+    }
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        color: transparent;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: transparent;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: transparent;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: transparent;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    input[type="radio"] + label {
+      display: none;
+    }
+    input:checked + label {
+        display: inline;
+    }
+
+}
+@media screen {
+/* この中に画面プレビュー用のスタイル指定を書く */
+    .sheet {
+        background: white; /* 背景を白く */
+        box-shadow: 0 .5mm 2mm rgba(0,0,0,.3); /* ドロップシャドウ */
+        margin: 10mm;
+    }
+    input[type="text"] {
+        background-color: yellow;
+    }
+    textarea {
+        background-color: yellow;
+    }
+    input[type="radio"] + label {
+      opacity: 0.25;
+    }
+    input:checked + label {
+      opacity: 1.0;
+    }
+
+}
+input[type="text"] {
+    font-size: 100%;
+}
+textarea {
+    font-size: 100%;
+    text-align: right;
+}
+input[class="right"] {
+    text-align: right;
+}
+div {
+    margin-bottom: 5mm;
+}
+
+</style>
+</head>
+<body>
+<div class="sheet">
+<div align="right">
+    送付日：
+    <input id="yyyy" type="text" class="right" style="width: 20mm" placeholder="2020" />
+    年
+    <input id="m" type="text" class="right" style="width: 10mm" placeholder="1" />
+    月
+    <input id="d" type="text" class="right" style="width: 10mm" placeholder="1" />
+    日
+</div>
+<div>
+    〒
+    <input type="text" style="width: 50mm" placeholder="000-0000" /><br />
+    <input type="text" class="right" placeholder="住所" /><br />
+    <input type="text" class="right" placeholder="" /><br />
+    <input type="text" class="right" placeholder="部署" /><br />
+    <input type="text" class="right" placeholder="" /><br />
+    <input type="text" class="right" placeholder="名前" />
+</div>
+<div align="center">
+    <h1>書類送付のご案内</h1>
+</div>
+<hr />
+<div>
+&nbsp;
+</div>
+<div>
+    拝啓　時下ますますご清栄のこととお喜び申し上げます。
+</div>
+<div>
+&nbsp;
+</div>
+<div>
+    早速ではございますが、下記の書類をお送り致しますので、
+</div>
+<div>
+    ご査収いただきますようお願い申し上げます。
+</div>
+<div align="right">
+敬具
+</div>
+<div align="center">
+記
+</div>
+<div id="documentation">
+<hr class="dash" />
+<input type="text" placeholder="●　書類　１通" value="●　　１通" />
+<hr class="dash" />
+<input type="text" />
+<input type="radio" id="documentation2" name="end" checked="checked" /><label for="documentation2">以上</label>
+<hr class="dash" />
+<input type="text" />
+<input type="radio" id="documentation3" name="end" /><label for="documentation3">以上</label>
+<hr class="dash" />
+<input type="text" />
+<input type="radio" id="documentation4" name="end" /><label for="documentation4">以上</label>
+<hr class="dash" />
+<input type="text" />
+<input type="radio" id="documentation5" name="end" /><label for="documentation5">以上</label>
+<hr class="dash" />
+</div>
+<div>
+&nbsp;
+</div>
+<div align="right">
+<textarea rows="5" cols="50">
+</textarea>
+</div>
+</body>
+</html>
